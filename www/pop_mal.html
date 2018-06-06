@@ -1,0 +1,73 @@
+<div style="position: absolute; width: 100%; height: 100%">
+	<div class="pop_up">
+	  <div class="pop_texto centrar_h"><div id="mala_titulo" class="pop_texto_large">----------</div>
+		  <div id="mala_texto" class="pop_texto_small">------</div></div>
+		<div class="pop_robot centrar"></div>
+		<div class="pop_error centrar"></div>
+		<div id="cerrar_mala" class="pop_close centrar_h" style="cursor: pointer"></div>
+		<div id="cerrar_avanza" class="pop_avanza_mal centrar_h" style="cursor: pointer; display: none"></div>
+		
+		
+		<div class="pop_contador centrar_h">
+			<div class="pop_contador2" style="display: none"></div>
+			<div class="pop_contador3" style="display: none"></div>
+		</div>
+	</div>
+	
+<script>
+var malas = 0
+		$('#cerrar_mala').click(function(){
+			$('#retro_mala').animate({opacity:'0'}, 400)
+			$('#retro_mala').fadeOut(0)
+			malas++
+			if(malas==1){
+				$('.pop_contador2').delay(1000).fadeIn()
+				
+			}else if(malas==2){
+				 $('.pop_contador3').delay(1000).fadeIn()
+				 $('#cerrar_avanza').delay(1000).fadeIn()
+			}
+		})
+		
+		$('#cerrar_avanza').click(function(){
+			if(nivel==1){
+				$('#retro_mala').animate({opacity:'0'}, 400)
+				$('#retro_mala').fadeOut(0)
+				pagina++
+				$('#carga').load('01/p_'+pagina+'.html')
+				setTimeout('reiniciar(); $("#cerrar_avanza").hide()',500)
+			}else if(nivel==2){
+				$('#retro_mala').animate({opacity:'0'}, 400)
+				$('#retro_mala').fadeOut(0)
+				pagina2++
+				$('#carga').load('02/p_'+pagina2+'.html')
+				setTimeout('reiniciar(); $("#cerrar_avanza").hide()',500)
+			}else if(nivel==3){
+				$('#retro_mala').animate({opacity:'0'}, 400)
+				$('#retro_mala').fadeOut(0)
+				pagina3++
+				$('#carga').load('03/p_'+pagina3+'.html')
+				setTimeout('reiniciar(); $("#cerrar_avanza").hide()',500)
+			}else if(nivel==4){
+				$('#retro_mala').animate({opacity:'0'}, 400)
+				$('#retro_mala').fadeOut(0)
+				pagina4++
+				$('#carga').load('04/p_'+pagina4+'.html')
+				setTimeout('reiniciar(); $("#cerrar_avanza").hide()',500)
+			}else if(nivel==5){
+				$('#retro_mala').animate({opacity:'0'}, 400)
+				$('#retro_mala').fadeOut(0)
+				pagina5++
+				$('#carga').load('05/p_'+pagina5+'.html')
+				setTimeout('reiniciar(); $("#cerrar_avanza").hide()',500)
+			}else if(nivel==6){
+				$('#retro_mala').animate({opacity:'0'}, 400)
+				$('#retro_mala').fadeOut(0)
+				pagina6++
+				$('#carga').load('06/p_'+pagina6+'.html')
+				setTimeout('reiniciar(); $("#cerrar_avanza").hide()',500)
+			}
+		})
+
+	</script>
+</div>	
