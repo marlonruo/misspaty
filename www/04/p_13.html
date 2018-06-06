@@ -1,0 +1,82 @@
+
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 4</strong> Medidas 13</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Si pago con un billete de <strong style="color: #FADC3C; ">cincuenta</strong><br>¿Cuánto me dan de cambio?</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+	<div class="p_13"></div>										
+<!--FIN PANTALLA EJERCICIOS-->
+
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+				<div class="row">
+				  <span>
+
+					<div>
+					     <div class="p_4_icon">
+					       <div id="tache1" class="retro_mal2"></div>
+						   <div id="buena1" class="retro_bien2"></div>
+					     </div>
+				    </div>
+				  <input style="float: left;" id="input1" class="slide-up input_small sombra_gris" type="text" maxlength="2"/>
+				  </span>
+				</div>	
+			<div>
+				<div id="comprobar" class="marco_gris" style="cursor: pointer;">Comprobar</div>
+			</div>
+		</div>
+   </div>
+<!--JAVA SCRIPTS-->
+
+        <script> 
+			$('#comprobar').click(function(){
+				
+				if(document.getElementById('input1').value=='10'){
+					
+					$('#retro_buena').show() 
+					$('#retro_buena').animate({opacity:'1'}, 400)
+					$('#buena_titulo').html('¡Muy bien!')
+					$('#buena_texto').html('Lo has resuelto corretamente.')
+					
+				}else{
+					$('#retro_mala').show() 
+					$('#retro_mala').animate({opacity:'1'}, 400)
+				}
+			/*	Retroalimentaciones malas	*/
+					
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Escribe el número correcto.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+					
+			/*	Retroalimentaciones malas	*/		
+			})			
+			
+	var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('04/p_14.html')
+				reiniciar()
+			}
+		})
+			
+		pagina4=13		
+		inicio()
+			
+    </script> 
+<!--FIN JAVA SCRIPTS-->

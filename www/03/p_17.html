@@ -1,0 +1,115 @@
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 3</strong> Geometría 17</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >¿Cómo llega el cangrejo a la concha?, arrastra la respuesta correcta.</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+
+		<div class="p_17">
+		<div id="con1" class="respuesta_mapa sombra_gris redondear textos_g centrar_h">¿?</div >
+</div>
+
+
+					
+<!--FIN PANTALLA EJERCICIOS-->
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+		
+				<div id="arr4" class=" drag_texto2 sombra_gris">
+					<div class="textos_m centrar"><strong style="color: #fff">2▲ </strong><strong style="color: #ffffcc">2▶ </strong><strong style="color: #ffcc66">2▼ </strong><strong style="color: #ff9900">1◀</strong></div>
+				</div>
+			
+				<div id="arr1" class=" drag_texto2 sombra_gris">
+					<div class="textos_m centrar"><strong style="color: #ff9900">3▲ </strong><strong style="color: #ffcc66">2◀ </strong><strong style="color: #ffffcc">1▼ </strong><strong style="color: #fff">1◀</strong></div>
+				</div>
+			
+				<div id="arr2" class=" drag_texto2 sombra_gris">
+					<div class="textos_m centrar"><strong style="color: #fff">3▲ </strong><strong style="color: #ffffcc">2▶ </strong><strong style="color: #ffcc66">1▼ </strong><strong style="color: #ff9900">1◀</strong></div>
+				</div>
+			
+				<div id="arr3" class=" drag_texto2 sombra_gris">
+					<div class="textos_m centrar"><strong style="color: #ff9900">2▲ </strong><strong style="color: #ffcc66">2▶ </strong><strong style="color: #ffffcc">3▼ </strong><strong style="color: #fff">1◀</strong></div>
+				</div>
+			
+				<div class="clear"></div>
+		</div>
+	</div>
+
+<!--JAVA SCRIPTS-->
+    
+    <script type="text/javascript" src="cordova.js"></script> 
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+		
+		
+		$(function() {
+			   $( "#arr1, #arr2, #arr3, #arr4").draggable({ containment: 'body', revert: "valid",
+				start: function() {
+					$(this).css( "z-index","10" );
+				},
+				stop: function() {
+					$(this).css('z-index', '1');
+				}
+			  });
+
+
+			  $( "#con1" ).droppable({  
+				accept: "#arr1, #arr2, #arr3, #arr4",
+				tolerance: "intersect",
+				drop: function( event, ui ) {
+
+					  if($(this).attr("id")=="con1" && ui.draggable.attr("id")=="arr1"){
+						 $('#arr1').hide()
+						 document.getElementById('con1').classList.add("marco_morado");
+						 $('#con1').html('3▲ 2◀ 1▼ 1◀')
+					     $('#con1').css('background', '#60025e')
+					     $('#con1').css('color', '#f0e5e0')
+						 $('#retro_buena').show() 
+						 $('#retro_buena').animate({opacity:'1'}, 400)
+						 $('#buena_titulo').html('Has logrado resolver corretamente el ejercicio.')
+						 $('#buena_texto').html('Avanza a la siguiente pantalla.')
+					  }
+						 else{
+						  $('#retro_mala').show() 
+						  $('#retro_mala').animate({opacity:'1'}, 400)
+					}
+		/* Retroalimentaciones malas */				
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Arrastra al espacio blanco la hora que marca el reloj.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+			/*	Retroalimentaciones malas	*/	
+				}
+			   });
+			   $( "body" ).droppable({tolerance: "touch",drop: function( event, ui ) {}});
+			});	
+		
+		var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+					
+			
+			if(contador == 0){
+				$('#carga').load('03/p_18.html')
+				reiniciar()
+			}
+		})
+		
+		inicio()
+		pagina3=17						
+		    	
+    </script> 
+<!--FIN JAVA SCRIPTS-->

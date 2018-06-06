@@ -1,0 +1,255 @@
+<div style="position: absolute; width: 100%; height: 100%">
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 1</strong> Números 45</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m">Ordena la secuencia usando números ordinales.</div>	
+<!-- FIN PARTE SUPERIOR -->
+	
+<!-- PANTALLA EJERCICIOS-->
+<div class="ejercicio_contenedor">
+	
+	
+<div class="ordena_ejercicio">	
+	<div class="ordena_col1">
+		<img class="" style="width:100%; max-width: 400px;" src="img/img_01/45_6.svg"/>
+		<div class="odenar_numero">
+			<div class="circulo_morado-dashed centrar">		
+				<div id="con6" class="opciones_circulo_color">
+					<div id="tex6" class="textos_g centrar ">?</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	
+		<div class="ordena_col1">
+		<img class="" style="width:100%; max-width: 400px;" src="img/img_01/45_2.svg"/>
+		<div class="odenar_numero">
+			<div class="circulo_morado-dashed centrar">		
+				<div id="con2" class="opciones_circulo_color">
+					<div id="tex2" class="textos_g centrar ">?</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	
+		<div class="ordena_col1">
+		<img class="" style="width:100%; max-width: 400px;" src="img/img_01/45_1.svg"/>
+		<div class="odenar_numero">
+			<div class="circulo_morado-dashed centrar">		
+				<div id="con1" class="opciones_circulo_color">
+					<div id="tex1" class="textos_g centrar ">?</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+
+
+	
+		<div class="ordena_col1">
+		<img class="" style="width:100%; max-width: 400px;" src="img/img_01/45_4.svg"/>
+		<div class="odenar_numero">
+			<div class="circulo_morado-dashed centrar">		
+				<div id="con4" class="opciones_circulo_color">
+					<div id="tex4" class="textos_g centrar ">?</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+		<div class="ordena_col1">
+		<img class="" style="width:100%; max-width: 400px;" src="img/img_01/45_3.svg"/>
+		<div class="odenar_numero">
+			<div class="circulo_morado-dashed centrar">		
+				<div id="con3" class="opciones_circulo_color">
+					<div id="tex3" class="textos_g centrar ">?</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	
+		<div class="ordena_col1">
+		<img class="" style="width:100%; max-width: 400px;" src="img/img_01/45_5.svg"/>
+		<div class="odenar_numero">
+			<div class="circulo_morado-dashed centrar">		
+				<div id="con5" class="opciones_circulo_color">
+					<div id="tex5" class="textos_g centrar ">?</div>
+				</div>
+			</div>
+		</div>
+	</div>		
+	
+	
+	
+</div>
+
+</div>
+<!--FIN PANTALLA EJERCICIOS-->
+
+	<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+
+				<div id="arr1" class="respuesta numero sombra_gris circular odd_purple">
+					<div class=" textos_g centrar">1º</div>
+				</div>
+			
+			
+			<div id="arr2" class="respuesta numero sombra_gris circular odd_purple2">
+					<div class=" textos_g centrar">2º</div>
+				</div>
+
+				<div id="arr3" class="respuesta numero sombra_gris circular odd_purple">
+					<div class=" textos_g centrar">3º</div>
+				</div>			
+			
+				<div id="arr4" class="respuesta numero sombra_gris circular odd_purple2">
+					<div class="textos_g centrar">4º</div>
+				</div>
+
+				<div id="arr5" class="respuesta numero sombra_gris circular odd_purple">
+					<div class="textos_g centrar">5º</div>
+				</div>	
+			
+			<div id="arr6" class="respuesta numero sombra_gris circular odd_purple2">
+					<div class="textos_g centrar">6º</div>
+				</div>	
+						
+
+		</div>
+	</div>
+</div>
+<!--JAVA SCRIPTS-->
+    <script>					
+			
+			//var blo=2
+			//var total = 0
+			var buenas = 0;
+			$(function() {
+			   $( "#arr1, #arr2, #arr3, #arr4, #arr5, #arr6, #arr7, #arr8").draggable({ containment: 'body', revert: "valid",
+				start: function() {
+					$(this).css( "z-index","10" );
+				},
+				stop: function() {
+					$(this).css('z-index', '1');
+				}
+			  });
+
+
+			  $( "#con1, #con2, #con3, #con4, #con5, #con6, #con7, #con8" ).droppable({  
+				accept: "#arr1, #arr2, #arr3, #arr4, #arr5, #arr6, #arr7, #arr8",
+				tolerance: "intersect",
+				drop: function( event, ui ) {
+
+					  if($(this).attr("id")=="con1" && ui.draggable.attr("id")=="arr1"){
+						 $('#arr1').hide()
+						 $('#tex1').html('1º')
+					     $('#con1').css('background', '#691869')
+					     $('#con1').css('border', '4px solid #691869', )
+					     $('#tex1').css('color', '#f0e5e0')
+						  
+						 buenas++
+					  }else if($(this).attr("id")=="con2" && ui.draggable.attr("id")=="arr2"){
+						 $('#arr2').hide()
+						 $('#tex2').html('2º')
+					     $('#con2').css('background', '#691869')
+					     $('#con2').css('border', '4px solid #691869', )
+					     $('#tex2').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con3" && ui.draggable.attr("id")=="arr3"){
+						 $('#arr3').hide()
+						 $('#tex3').html('3º')
+					     $('#con3').css('background', '#691869')
+					     $('#con3').css('border', '4px solid #691869', )
+					     $('#tex3').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con4" && ui.draggable.attr("id")=="arr4"){
+						 $('#arr4').hide()
+						 $('#tex4').html('4º')
+					     $('#con4').css('background', '#691869')
+					     $('#con4').css('border', '4px solid #691869', )
+					     $('#tex4').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con4" && ui.draggable.attr("id")=="arr4"){
+						 $('#arr4').hide()
+						 $('#tex4').html('4º')
+					     $('#con4').css('background', '#691869')
+					     $('#con4').css('border', '4px solid #691869', )
+					     $('#tex4').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con5" && ui.draggable.attr("id")=="arr5"){
+						 $('#arr5').hide()
+						 $('#tex5').html('5º')
+					     $('#con5').css('background', '#691869')
+					     $('#con5').css('border', '4px solid #691869', )
+					     $('#tex5').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con6" && ui.draggable.attr("id")=="arr6"){
+						 $('#arr6').hide()
+						 $('#tex6').html('6º')
+					     $('#con6').css('background', '#691869')
+					     $('#con6').css('border', '4px solid #691869', )
+					     $('#tex6').css('color', '#f0e5e0')
+						 buenas++
+					  }else{
+						  $('#retro_mala').show() 
+						  $('#retro_mala').animate({opacity:'1'}, 400)
+
+					  }
+
+/*	Retroalimentacion buena	*/
+					
+					  if(buenas==6){
+						  $('#retro_buena').show() 
+						  $('#retro_buena').animate({opacity:'1'}, 400)
+ 						  $('#buena_titulo').html('¡Bien hecho!')
+						  $('#buena_texto').html('Avanza a la siguiente pantalla.')
+					  }
+					
+/*	Retroalimentaciones malas	*/
+					
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Arrastra al espacio correcto cada uno de los elementos.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+					
+/*	Retroalimentaciones malas	*/
+					
+		}
+	});
+
+			   $( "body" ).droppable({tolerance: "touch",drop: function( event, ui ) {}});
+});
+	
+		
+/*	Te lleva a la siguiente pantalla	*/
+		var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('01/p_45.html')
+ 
+				reiniciar()
+			}
+		})
+		
+		pagina=45
+		inicio()
+    </script> 
+<!--FIN JAVA SCRIPTS-->
+
+

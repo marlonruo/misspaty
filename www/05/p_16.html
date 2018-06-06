@@ -1,0 +1,120 @@
+
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 5</strong> Cálculo Mental 16</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Resuelve mentalmente<br>
+    Escribe con número.</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+		<div class="p_16"></div>										
+<!--FIN PANTALLA EJERCICIOS-->
+
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+			
+				<div class="row">
+					  <span>
+						<input style="margin-left: 15px" class="slide-up input_small" id="input1" type="text" maxlength="2"/>
+						  	<div class="p_16_icon1 ">
+				</div>
+					  </span>
+					<div id="tache1" class="retro_mal4"></div>
+					<div id="buena1" class="retro_bien4"></div>	
+				</div>
+
+				<div class="row">
+					  <span>
+						<input style="margin-left: 15px" class="slide-up input_small" id="input2" type="text" maxlength="2"/>
+						  	<div class="p_16_icon2">
+				</div>
+					  </span>
+					<div id="tache2" class="retro_mal4"></div>
+					<div id="buena2" class="retro_bien4"></div>	
+				</div>
+			
+			
+				<div class="row">
+					  <span>
+						<input style="margin-left: 15px" class="slide-up input_small" id="input3" type="text" maxlength="2"/>
+						  	<div class="p_16_icon3">
+				</div>
+					  </span>
+					<div id="tache3" class="retro_mal4"></div>
+					<div id="buena3" class="retro_bien4"></div>	
+				</div>
+			
+			
+						
+				<div>
+					<div id="comprobar" class="marco_gris" style="cursor: pointer;">Comprobar</div>
+				</div>
+		</div>
+   </div>
+<!--JAVA SCRIPTS-->
+        <script> 
+			$('#comprobar').click(function(){
+				$('#tache1, #tache2, #tache3, buena1, #buena2, #buena3').hide()
+				if(document.getElementById('input1').value=='80' && document.getElementById('input2').value=='74' && document.getElementById('input3').value=='66'){
+					
+					$('#retro_buena').show() 
+					$('#retro_buena').animate({opacity:'1'}, 400)
+					$('#buena_titulo').html('¡Bien!.')
+					$('#buena_texto').html('Avanza a la siguiente pantalla.')	
+					
+				}else{
+					if(document.getElementById('input1').value!='80'){
+						$('#tache1').fadeIn()
+					}else{
+						$('#buena1').fadeIn()
+					}
+					
+					if(document.getElementById('input2').value!='74'){
+						$('#tache2').fadeIn()
+					}else{
+						$('#buena2').fadeIn()
+					}
+					
+					if(document.getElementById('input3').value!='66'){
+						$('#tache3').fadeIn()
+					}else{
+						$('#buena3').fadeIn()
+					}
+					$('#retro_mala').show() 
+					$('#retro_mala').animate({opacity:'1'}, 400)
+			/*	Retroalimentaciones malas	*/
+					
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Escibe en los espacios el número de cuadrados de cada color.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}	
+					
+			/*	Retroalimentaciones malas	*/		
+				}
+			})
+			
+	var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('05/p_17.html')
+				reiniciar()
+			}
+		})
+			
+		pagina5=16						
+		inicio()
+    </script> 
+

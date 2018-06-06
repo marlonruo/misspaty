@@ -1,0 +1,165 @@
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 3</strong> Geometría 3</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Cuenta las figuras y arrastra la opción correcta.</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+		<div class="p_3_1"></div>
+		<div class="p_3_4">
+				<div id="con1" class="respuesta opciones_respuesta centrar circular ui-draggable ui-draggable-handle">
+					<div class="centrar">?</div>
+				</div>
+		</div>
+
+		<div class="p_3_2"></div>
+		<div class="p_3_4">
+				<div id="con2" class="respuesta opciones_respuesta centrar circular ui-draggable ui-draggable-handle">
+					<div class="centrar">?</div>
+				</div>
+		</div>
+
+
+		<div class="p_3_3"></div>
+		<div class="p_3_4">
+				<div id="con3" class="respuesta opciones_respuesta centrar circular ui-draggable ui-draggable-handle">
+					<div class="centrar">?</div>
+				</div>
+		</div>
+		
+					
+<!--FIN PANTALLA EJERCICIOS-->
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+		
+			
+				<div id="arr3" class="respuesta opciones_respuesta_small circular ui-draggable ui-draggable-handle">
+					<div class="p_3_res_3"></div>
+				</div>	
+			
+			
+			
+				<div id="arr1" class="respuesta opciones_respuesta_small circular ui-draggable ui-draggable-handle">
+					<div class="p_3_res_1"></div>
+				</div>	
+			
+			
+				<div id="arr2" class="respuesta opciones_respuesta_small circular ui-draggable ui-draggable-handle">
+					<div class="p_3_res_2"></div>
+				</div>	
+			
+			
+		</div>
+	</div>
+
+<!--JAVA SCRIPTS-->
+   <script>					
+			
+
+			var buenas = 0;
+			$(function() {
+			   $( "#arr1, #arr2, #arr3, #arr4, #arr5, #arr6").draggable({ containment: 'body', revert: "valid",
+				start: function() {
+					$(this).css( "z-index","10" );
+				},
+				stop: function() {
+					$(this).css('z-index', '1');
+				}
+			  });
+
+
+			  $( "#con1, #con2, #con3, #con4, #con5, #con6" ).droppable({  
+				accept: "#arr1, #arr2, #arr3, #arr4, #arr5, #arr6",
+				tolerance: "intersect",
+				drop: function( event, ui ) {
+
+					  if($(this).attr("id")=="con1" && ui.draggable.attr("id")=="arr1"){
+						 $('#arr1').hide()
+					     $('#con1').css('background', 'url(img_p/3_d1a.svg) #60025e no-repeat center')
+					     $('#con1').css('border', '4px solid #60025e')
+						 $('#con1').html('')
+						 buenas++
+					  }else if($(this).attr("id")=="con2" && ui.draggable.attr("id")=="arr2"){
+						 $('#arr2').hide()
+					     $('#con2').css('background', 'url(img_p/3_d2a.svg) #60025e no-repeat center')
+					     $('#con2').css('border', '4px solid #60025e')
+						 $('#con2').html('')
+						 buenas++
+					  }else if($(this).attr("id")=="con3" && ui.draggable.attr("id")=="arr3"){
+						 $('#arr3').hide()
+					     $('#con3').css('background', 'url(img_p/3_d3a.svg) #60025e no-repeat center')
+					     $('#con3').css('border', '4px solid #60025e')
+						 $('#con3').html('')
+						 buenas++
+					  }else if($(this).attr("id")=="con4" && ui.draggable.attr("id")=="arr4"){
+						 $('#arr4').hide()
+						 document.getElementById('con4').classList.add("marco_morado_on3");
+						 $('#con4').html('6:00')
+					     $('#con4').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con5" && ui.draggable.attr("id")=="arr5"){
+						 $('#arr5').hide()
+						 document.getElementById('con5').classList.add("circulo_azul_on");
+						 $('#tex5').html('16')
+					     $('#tex5').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con6" && ui.draggable.attr("id")=="arr6"){
+						 $('#arr6').hide()
+						 document.getElementById('con6').classList.add("marco_morado");
+						 $('#con6').html('doce')
+					     $('#con6').css('color', '#f0e5e0')
+						 buenas++
+					  }else{
+						  $('#retro_mala').show() 
+						  $('#retro_mala').animate({opacity:'1'}, 400)
+					  }
+					
+/*	Retroalimentacion buena	*/
+					
+					  if(buenas==3){
+						  $('#retro_buena').show() 
+						  $('#retro_buena').animate({opacity:'1'}, 400)
+ 						  $('#buena_titulo').html('¡Bien hecho!')
+						  $('#buena_texto').html('Avanza a la siguiente pantalla.')
+					  }
+					
+/*	Retroalimentaciones malas	*/
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Arrastra al espacio correcto cada uno de los elementos.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}	
+/*	Retroalimentaciones malas	*/
+					
+		}
+	});
+
+			   $( "body" ).droppable({tolerance: "touch",drop: function( event, ui ) {}});
+});
+	
+		
+/*	Te lleva a la siguiente pantalla	*/
+		var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('03/p_4.html')
+				reiniciar()
+			}
+		})
+		
+		pagina3=3
+		inicio()
+    </script> 
+

@@ -1,0 +1,183 @@
+
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 3</strong> Geometría 11</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Escribe el nombre de las figuras.</div>	
+<!-- FIN PARTE SUPERIOR -->
+
+<!-- PANTALLA EJERCICIOS-->
+	<div class="escribe2_ejercicio">
+			<div class="escribe_col2">
+				<input id="input1" class="escribe2_respuestas" type="text" maxlength="10">
+			</div>
+		
+			<div class="escribe_col1">
+				<div class="figura_a"></div>
+			</div>
+		<div id="tache1" class="retro_mal"></div>
+		<div id="buena1" class="retro_bien"></div>	
+	</div>
+
+
+		<div class="escribe2_ejercicio">
+			<div class="escribe_col2">
+				<input id="input2" class="escribe2_respuestas" type="text" maxlength="10">
+			</div>
+		
+			<div class="escribe_col1">
+				<div class="figura_b"></div>
+			</div>
+		<div id="tache2" class="retro_mal"></div>
+		<div id="buena2" class="retro_bien"></div>	
+	</div>
+
+	<div class="escribe2_ejercicio">
+			<div class="escribe_col2">
+				<input id="input3" class="escribe2_respuestas" type="text" maxlength="10">
+			</div>
+		
+			<div class="escribe_col1">
+				<div class="figura_c"></div>
+			</div>
+		<div id="tache3" class="retro_mal"></div>
+		<div id="buena3" class="retro_bien"></div>	
+	</div>
+
+	<div class="escribe2_ejercicio">
+			<div class="escribe_col2">
+				<input id="input4" class="escribe2_respuestas" type="text" maxlength="10">
+			</div>
+
+			<div class="escribe_col1">
+				<div class="figura_d"></div>
+			</div>
+		<div id="tache4" class="retro_mal"></div>
+		<div id="buena4" class="retro_bien"></div>	
+	</div>
+
+
+	<div class="escribe2_ejercicio">
+			<div class="escribe_col2">
+				<input id="input5" class="escribe2_respuestas" type="text" maxlength="10">
+			</div>
+		
+			<div class="escribe_col1">
+				<div class="figura_e"></div>
+			</div>
+		<div id="tache5" class="retro_mal"></div>
+		<div id="buena5" class="retro_bien"></div>	
+	</div>
+
+	<div class="escribe2_ejercicio">
+			<div class="escribe_col2">
+				<input id="input6" class="escribe2_respuestas" type="text" maxlength="10">
+			</div>
+		
+			<div class="escribe_col1">
+				<div class="figura_f"></div>
+			</div>
+		<div id="tache6" class="retro_mal"></div>
+		<div id="buena6" class="retro_bien"></div>	
+	</div>
+<!--FIN PANTALLA EJERCICIOS-->
+
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+			
+			<div>
+				<div id="comprobar" class="marco_gris" style="cursor: pointer;">Comprobar</div>
+			</div>
+		</div>
+   </div>
+
+<!--JAVA SCRIPTS-->
+        <script> 
+			$('#comprobar').click(function(){
+				$('#tache1, #tache2, #tache3, #tache4, #tache5, #tache6').hide()
+				if(document.getElementById('input1').value=='triángulo' && document.getElementById('input2').value=='cuadrado' && document.getElementById('input3').value=='rectángulo' && document.getElementById('input4').value=='rombo' && document.getElementById('input5').value=='círculo' && document.getElementById('input6').value=='pentágono'){
+					
+					$('#retro_buena').show() 
+					$('#retro_buena').animate({opacity:'1'}, 400)
+					$('#buena_titulo').html('¡Correcto!.')
+					$('#buena_texto').html('Has logrado resolver corretamente el ejercicio.')
+					
+				}else{
+					if(document.getElementById('input1').value!='triángulo'){
+						$('#tache1').fadeIn()
+						
+					}else{
+						$('#buena1').fadeIn()
+					}
+					
+					if(document.getElementById('input2').value!='cuadrado'){
+						$('#tache2').fadeIn()
+					}else{
+						$('#buena2').fadeIn()
+					}
+					
+					if(document.getElementById('input3').value!='rectángulo'){
+						$('#tache3').fadeIn()
+					}else{
+						$('#buena3').fadeIn()
+					}
+					
+					if(document.getElementById('input4').value!='rombo'){
+						$('#tache4').fadeIn()
+					}else{
+						$('#buena4').fadeIn()
+					}
+					
+					if(document.getElementById('input5').value!='círculo'){
+						$('#tache5').fadeIn()
+					}else{
+						$('#buena5').fadeIn()
+					}
+					
+					if(document.getElementById('input6').value!='pentágono'){
+						$('#tache6').fadeIn()
+					}else{
+						$('#buena6').fadeIn()
+					}
+			
+			/*	Retroalimentaciones malas	*/
+					
+				if(malas==0){
+						 $('#mala_titulo').html('Escribe en minúsculas y revisá la ortografía.')
+						 $('#mala_texto').html('Escribe el número correcto.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('Escribe en minúsculas y revisá la ortografía')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+					
+			/*	Retroalimentaciones malas	*/
+					
+					$('#retro_mala').show() 
+					$('#retro_mala').animate({opacity:'1'}, 400)
+			
+	
+				}
+			})
+			
+	var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('03/p_12.html')
+				reiniciar()
+			}
+		})
+			
+		pagina3=11
+		inicio()
+    </script> 
+

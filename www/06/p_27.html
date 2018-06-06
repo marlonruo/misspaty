@@ -1,0 +1,26 @@
+	
+<div class="header_white">
+		<div class="centrar textos_c"><strong class="unidad_purple textos_m">Nivel 6</strong> ¡Finalizado!</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Muy bien haz completado el Nivel 5</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+<div class="p_evaluacion_back centrar"><div class="p_evaluacion_text centrar">9.6</div></div>
+<div class="p_evaluacion_green centrar"></div>
+
+					<div class="p_evaluacion_avanzar">							
+						<div id="avanzar" class="redondear">Reiniciar<strong> Nivel 1</strong></div >
+					</div >	
+
+<div class="background_color"></div>
+
+    <script> 
+		$('#avanzar').click(function(){
+			nivel = 1	
+			$('#carga').load('01/p_1.html')
+			loadjscssfile("css/01.css", "css")
+			$("link[href='css/06.css']").remove();	
+		})
+		pagina=27								
+		inicio()
+    </script> 

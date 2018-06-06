@@ -1,0 +1,93 @@
+
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 6</strong> Habilidades 18</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Así se ve desde arriba y desde abajo.<br>¿Reconoces este objeto?</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+	<div id="con1" class="p_18"></div>										
+<!--FIN PANTALLA EJERCICIOS-->
+
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+
+				<div id="arr3" class="p_18_3"></div>
+				<div id="arr1" class="p_18_1"></div>
+				<div id="arr2" class="p_18_2"></div>
+					
+				<div class="clear"></div>
+		</div>
+	</div>
+ <script type="text/javascript" src="cordova.js"></script> 
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+		
+		
+		$(function() {
+			   $( "#arr1, #arr2, #arr3, #arr4").draggable({ containment: 'body', revert: "valid",
+				start: function() {
+					$(this).css( "z-index","10" );
+				},
+				stop: function() {
+					$(this).css('z-index', '1');
+				}
+			  });
+
+
+			  $( "#con1" ).droppable({  
+				accept: "#arr1, #arr2, #arr3, #arr4",
+				tolerance: "intersect",
+				drop: function( event, ui ) {
+
+					  if($(this).attr("id")=="con1" && ui.draggable.attr("id")=="arr1"){
+						 $('#arr1').hide()
+					     $('#con1').css('background', 'url(img_p/coin_5.svg) no-repeat center')
+						 $('#retro_buena').show() 
+						 $('#retro_buena').animate({opacity:'1'}, 400)
+						 $('#buena_titulo').html('Has logrado resolver corretamente el ejercicio.')
+						 $('#buena_texto').html('Avanza a la siguiente pantalla.')
+					  }
+						 else{
+						  $('#retro_mala').show() 
+						  $('#retro_mala').animate({opacity:'1'}, 400)
+					}
+		/* Retroalimentaciones malas */				
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Arrastra sombra que le corresponde.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+			/*	Retroalimentaciones malas	*/	
+				}
+			   });
+			   $( "body" ).droppable({tolerance: "touch",drop: function( event, ui ) {}});
+			});	
+		
+		var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+					
+			
+			if(contador == 0){
+				$('#carga').load('06/p_19.html')
+				reiniciar()
+			}
+		})
+		
+		inicio()
+		pagina6=18				
+		    	
+    </script> 
+<!--FIN JAVA SCRIPTS-->

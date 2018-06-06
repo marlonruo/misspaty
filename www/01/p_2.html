@@ -1,0 +1,226 @@
+<div style="position: absolute; width: 100%; height: 100%">
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 1</strong> Números 2</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Coloca los números en el espacio<br>que les corresponde.</div>	
+<!-- FIN PARTE SUPERIOR -->
+	
+<!-- PANTALLA EJERCICIOS-->
+<div class="ejercicio_contenedor">
+
+					<div class="ejercicio_opcion">							
+						<div id="con3" class="circulo_azul_off sombra_gris">
+							<div id="tex3" class=" centrar textos_g">?</div>
+						</div>
+						<div class="marco_morado sombra_gris redondear textos_m">once</div >
+					</div >
+					
+					<div class="ejercicio_opcion">							
+						<div id="con5" class="circulo_azul_off sombra_gris">
+							<div id="tex5" class=" centrar textos_g">?</div>
+						</div>
+						<div class="marco_morado sombra_gris redondear textos_m">dieciséis</div >
+					</div >					
+		
+					<div class="ejercicio_opcion">							
+						<div class="circulo_azul_on sombra_gris">
+							<div class="  centrar textos_g">12</div>
+						</div>
+						<div  id="con6" class="marco_morado_off sombra_gris redondear textos_m">¿?</div >
+					</div >
+					
+					<div class="ejercicio_opcion">							
+						<div class="circulo_azul_on sombra_gris">
+							<div class="  centrar textos_g">17</div>
+						</div>
+						<div class="marco_morado sombra_gris redondear textos_m">diecisite</div >
+					</div >		
+
+					<div class="ejercicio_opcion">							
+						<div class="circulo_azul_on sombra_gris">
+							<div class="  centrar textos_g">13</div>
+						</div>
+						<div id="cont2" class="marco_morado sombra_gris redondear textos_m">trece</div >
+					</div >
+					
+					<div class="ejercicio_opcion">							
+						<div  id="con1" class="circulo_azul_off sombra_gris">
+							<div id="tex1" class="centrar textos_g">?</div>
+						</div>
+						<div  class="marco_morado sombra_gris redondear textos_m">dieciocho</div >
+					</div >	
+					
+					
+		<div class="ejercicio_opcion">							
+						<div class="circulo_azul_on sombra_gris">
+							<div class="centrar textos_g">14</div>
+						</div>
+						<div id="con2" class="marco_morado_off sombra_gris redondear textos_m">?</div >
+					</div >
+					
+					<div class="ejercicio_opcion">							
+						<div  class="circulo_azul_on sombra_gris">
+							<div  class="centrar textos_g">19</div>
+						</div>
+						<div class="marco_morado sombra_gris redondear textos_m">diecinueve</div >
+					</div >	
+					
+					
+		<div class="ejercicio_opcion">							
+						<div class="circulo_azul_on sombra_gris">
+							<div class="centrar textos_g">15</div>
+						</div>
+						<div class="marco_morado sombra_gris redondear textos_m">quince</div >
+					</div >
+					
+					<div class="ejercicio_opcion">							
+						<div o class="circulo_azul_on sombra_gris">
+							<div  class="centrar textos_g">20</div>
+						</div>
+						<div id="con4" class="marco_morado_off sombra_gris redondear textos_m">¿?</div >
+					</div >						
+					
+		</div>
+<!--FIN PANTALLA EJERCICIOS-->
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+		
+				<div id="arr1" class="respuesta numero sombra_gris circular ">
+					<div class=" textos_g centrar">18</div>
+				</div>
+			
+			
+				<div id="arr2" class="respuesta drag_texto sombra_gris">
+					<div class="textos_m centrar">catorce</div>
+				</div>
+
+				<div id="arr3" class="respuesta numero sombra_gris circular ">
+					<div class="textos_g centrar">11</div>
+				</div>
+				<div id="arr4" class="respuesta drag_texto sombra_gris">
+					<div class="textos_m centrar">veinte</div>
+				</div>
+				<div id="arr5" class="respuesta numero sombra_gris circular">
+					<div class="textos_g centrar">16</div>
+				</div>
+				<div id="arr6" class="respuesta drag_texto sombra_gris">
+					<div class="textos_m centrar">doce</div>
+				</div>
+		</div>
+	</div>
+</div>
+<!--JAVA SCRIPTS-->
+    
+   
+      
+    <script>					
+			
+
+			var buenas = 0;
+			$(function() {
+			   $( "#arr1, #arr2, #arr3, #arr4, #arr5, #arr6").draggable({ containment: 'body', revert: "valid",
+				start: function() {
+					$(this).css( "z-index","10" );
+				},
+				stop: function() {
+					$(this).css('z-index', '1');
+				}
+			  });
+
+
+			  $( "#con1, #con2, #con3, #con4, #con5, #con6" ).droppable({  
+				accept: "#arr1, #arr2, #arr3, #arr4, #arr5, #arr6",
+				tolerance: "intersect",
+				drop: function( event, ui ) {
+
+					  if($(this).attr("id")=="con1" && ui.draggable.attr("id")=="arr1"){
+						 $('#arr1').hide()
+						 document.getElementById('con1').classList.add("circulo_azul_on");
+						 $('#tex1').html('18')
+					     $('#tex1').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con2" && ui.draggable.attr("id")=="arr2"){
+						 $('#arr2').hide()
+						 document.getElementById('con2').classList.add("marco_morado");
+						 $('#con2').html('catorce')
+					     $('#con2').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con3" && ui.draggable.attr("id")=="arr3"){
+						 $('#arr3').hide()
+						 document.getElementById('con3').classList.add("circulo_azul_on");
+						 $('#tex3').html('11')
+					     $('#tex3').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con4" && ui.draggable.attr("id")=="arr4"){
+						 $('#arr4').hide()
+						 document.getElementById('con4').classList.add("marco_morado");
+						 $('#con4').html('veinte')
+					     $('#con4').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con5" && ui.draggable.attr("id")=="arr5"){
+						 $('#arr5').hide()
+						 document.getElementById('con5').classList.add("circulo_azul_on");
+						 $('#tex5').html('16')
+					     $('#tex5').css('color', '#f0e5e0')
+						 buenas++
+					  }else if($(this).attr("id")=="con6" && ui.draggable.attr("id")=="arr6"){
+						 $('#arr6').hide()
+						 document.getElementById('con6').classList.add("marco_morado");
+						 $('#con6').html('doce')
+					     $('#con6').css('color', '#f0e5e0')
+						 buenas++
+					  }else{
+						  $('#retro_mala').show() 
+						  $('#retro_mala').animate({opacity:'1'}, 400)
+					  }
+					
+/*	Retroalimentacion buena	*/
+					
+					  if(buenas==6){
+						  $('#retro_buena').show() 
+						  $('#retro_buena').animate({opacity:'1'}, 400)
+ 						  $('#buena_titulo').html('¡Bien hecho!')
+						  $('#buena_texto').html('Avanza a la siguiente pantalla.')
+					  }
+					
+/*	Retroalimentaciones malas	*/
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Arrastra al espacio correcto cada uno de los elementos.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}	
+/*	Retroalimentaciones malas	*/
+					
+		}
+	});
+
+			   $( "body" ).droppable({tolerance: "touch",drop: function( event, ui ) {}});
+});
+	
+		
+/*	Te lleva a la siguiente pantalla	*/
+		var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('01/p_3.html')
+				reiniciar()
+			}
+		})
+		
+		pagina=2
+		inicio()
+    </script> 
+

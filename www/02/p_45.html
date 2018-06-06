@@ -1,0 +1,186 @@
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 2</strong> Operaciones 45</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Escribe en las casillas con número que complete la frase. </div>	
+<!-- FIN PARTE SUPERIOR -->
+
+<!-- PANTALLA EJERCICIOS-->
+<div class="ejercicio_contenedor">
+	
+	<!--PRIMER REACTIVO-->
+					<div class="escribe2_ejercicio">
+						<div class="escribe2_col1">
+							<input id="input1" class="escribe2_respuestas sombra_gris" type="text" maxlength="3">
+						</div>	
+						<div class="escribe2_col2">
+							<div class="escribe2_marco_morado odd sombra_gris redondear">Es la mitad de <strong>80</strong></div>
+						</div>
+								<div id="tache1" class="retro_mal"></div>
+								<div id="buena1" class="retro_bien"></div>	
+					</div>
+	
+	<!--SEGUNDO REACTIVO-->
+					<div class="escribe2_ejercicio">
+						<div class="escribe2_col1">
+							<input id="input2" class="escribe2_respuestas sombra_gris" type="text" maxlength="3">
+						</div>							
+						<div class="escribe2_col2">
+							<div class="escribe2_marco_morado sombra_gris redondear">Es la mitad de <strong>100</strong></div>
+						</div>
+								<div id="tache2" class="retro_mal"></div>
+								<div id="buena2" class="retro_bien"></div>	
+					</div>
+	
+	<!--TERCER REACTIVO-->
+					<div class="escribe2_ejercicio">
+						<div class="escribe2_col1">
+							<input id="input3" class="escribe2_respuestas sombra_gris" type="text" maxlength="3">
+						</div>							
+						<div class="escribe2_col2">
+							<div class="escribe2_marco_morado odd sombra_gris redondear">Es la mitad de <strong>70</strong></div>					
+						</div>	
+								<div id="tache3" class="retro_mal"></div>
+								<div id="buena3" class="retro_bien"></div>	
+					</div>	
+	
+	<!--CUARTO REACTIVO-->
+					<div class="escribe2_ejercicio">
+						<div class="escribe2_col1">
+							<input id="input4" class="escribe2_respuestas sombra_gris" type="text" maxlength="3">
+						</div>							
+						<div class="escribe2_col2">
+							<div class="escribe2_marco_morado sombra_gris redondear">Es la mitad de <strong>64</strong></div>
+						</div>
+								<div id="tache4" class="retro_mal"></div>
+								<div id="buena4" class="retro_bien"></div>	
+					</div>	
+	
+	<!--QUINTO REACTIVO-->
+					<div class="escribe2_ejercicio">
+						<div class="escribe2_col1">
+							<input id="input5" class="escribe2_respuestas sombra_gris" type="text" maxlength="3">
+						</div>							
+						<div class="escribe2_col2">
+							<div class="escribe2_marco_morado odd sombra_gris redondear">Es la mitad de <strong>2</strong></div>
+						</div>	
+								<div id="tache5" class="retro_mal"></div>
+								<div id="buena5" class="retro_bien"></div>	
+					</div>
+	
+	<!--SEXTO REACTIVO-->
+					<div class="escribe2_ejercicio">
+						<div class="escribe2_col1">
+							<input id="input6" class="escribe2_respuestas sombra_gris" type="text" maxlength="3">
+						</div>							
+						<div class="escribe2_col2">
+							<div class="escribe2_marco_morado sombra_gris redondear">Es la mitad de <strong>60</strong></div>
+						</div>	
+								<div id="tache6" class="retro_mal"></div>
+								<div id="buena6" class="retro_bien"></div>	
+					</div>				
+
+	
+</div>
+<!--FIN PANTALLA EJERCICIOS-->
+
+
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+				<div class="row">
+					<div id="comprobar" class="marco_gris">Comprobar</div>
+				</div>
+		</div>
+	</div>
+	
+	
+<!--JAVA SCRIPTS-->
+        <script> 
+			$('#comprobar').click(function(){
+				$('#tache1, #tache2, #tache3, #tache4, #tache5, #tache6').hide()
+				if(document.getElementById('input1').value=='40' && document.getElementById('input2').value=='50' && document.getElementById('input3').value=='35' && document.getElementById('input4').value=='32' && document.getElementById('input5').value=='1' && document.getElementById('input6').value=='30'){
+					
+					$('#retro_buena').show() 
+					$('#retro_buena').animate({opacity:'1'}, 400)
+					$('#buena_titulo').html('¡Correcto!.')
+					$('#buena_texto').html('Has logrado resolver corretamente el ejercicio.')
+					
+				}else{
+					if(document.getElementById('input1').value!='40'){
+						$('#tache1').fadeIn()
+						
+					}else{
+						$('#buena1').fadeIn()
+					}
+					
+					if(document.getElementById('input2').value!='50'){
+						$('#tache2').fadeIn()
+					}else{
+						$('#buena2').fadeIn()
+					}
+					
+					if(document.getElementById('input3').value!='35'){
+						$('#tache3').fadeIn()
+					}else{
+						$('#buena3').fadeIn()
+					}
+					
+					if(document.getElementById('input4').value!='32'){
+						$('#tache4').fadeIn()
+					}else{
+						$('#buena4').fadeIn()
+					}
+					
+					if(document.getElementById('input5').value!='1'){
+						$('#tache5').fadeIn()
+					}else{
+						$('#buena5').fadeIn()
+					}
+					
+					if(document.getElementById('input6').value!='30'){
+						$('#tache6').fadeIn()
+					}else{
+						$('#buena6').fadeIn()
+					}
+			
+			/*	Retroalimentaciones malas	*/
+					
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Escribe el número correcto.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+					
+			/*	Retroalimentaciones malas	*/
+					
+					$('#retro_mala').show() 
+					$('#retro_mala').animate({opacity:'1'}, 400)
+			
+	
+				}
+			})
+			
+	var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('p_46.html')
+				reiniciar()
+			}
+		})
+			
+		pagina2=45
+		inicio()
+    </script> 
+

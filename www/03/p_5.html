@@ -1,0 +1,109 @@
+
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 3</strong> Geometría 5</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Escribe con número cuántas figuras son de cada una.</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+					<div class="p_5"></div>										
+<!--FIN PANTALLA EJERCICIOS-->
+
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+			
+			
+				<div style="width: 100%; height: 45px">
+					<div  class="cuadro_2"></div>
+
+					<div class="p_5_icon1 centrar_h" style="margin-left: -95px; margin-bottom: 2px;">
+					    <div id="tache1" class="retro_mal2"></div>
+						<div id="buena1" class="retro_bien2"></div></div>
+					<div class="p_5_icon2 centrar_h" style="margin-left: -5px; margin-bottom: 2px;">
+						<div id="tache2" class="retro_mal2"></div>
+						<div id="buena2" class="retro_bien2"></div></div>
+					<div class="p_5_icon3 centrar_h" style="margin-left: 87px; margin-bottom: 2px;">
+						<div id="tache3" class="retro_mal2"></div>
+					   <div id="buena3" class="retro_bien2"></div></div>
+				</div>
+			
+				<div class="row">
+				  <span>
+				  <input id="input1" class="slide-up input_small sombra_gris" type="text" maxlength="2"/>
+				  <input id="input2" class="slide-up input_small sombra_gris" type="text" maxlength="2"/>
+				  <input id="input3" class="slide-up input_small sombra_gris" type="text" maxlength="2"/>
+				  </span>
+				</div>	
+						
+				<div>
+					<div id="comprobar" class="marco_gris" style="cursor: pointer;">Comprobar</div>
+				</div>
+		</div>
+   </div>
+<!--JAVA SCRIPTS-->
+        <script> 
+			$('#comprobar').click(function(){
+				$('#tache1, #tache2, #tache3, buena1, #buena2, #buena3').hide()
+				if(document.getElementById('input1').value=='6' && document.getElementById('input2').value=='1' && document.getElementById('input3').value=='5'){
+					
+					$('#retro_buena').show() 
+					$('#retro_buena').animate({opacity:'1'}, 400)
+					$('#buena_titulo').html('¡Bien!.')
+					$('#buena_texto').html('Avanza a la siguiente pantalla.')	
+					
+				}else{
+					if(document.getElementById('input1').value!='6'){
+						$('#tache1').fadeIn()
+					}else{
+						$('#buena1').fadeIn()
+					}
+					
+					if(document.getElementById('input2').value!='1'){
+						$('#tache2').fadeIn()
+					}else{
+						$('#buena2').fadeIn()
+					}
+					
+					if(document.getElementById('input3').value!='5'){
+						$('#tache3').fadeIn()
+					}else{
+						$('#buena3').fadeIn()
+					}
+					$('#retro_mala').show() 
+					$('#retro_mala').animate({opacity:'1'}, 400)
+			/*	Retroalimentaciones malas	*/
+					
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Escibe en los espacios el número de cuadrados de cada color.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}	
+					
+			/*	Retroalimentaciones malas	*/		
+				}
+			})
+			
+	var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('03/p_6.html')
+				reiniciar()
+			}
+		})
+			
+		pagina3=5						
+		inicio()
+    </script> 
+

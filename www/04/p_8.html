@@ -1,0 +1,99 @@
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 4</strong> Medidas 8</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Quiero ahorrar <strong style="color: #FADC3C; ">$100</strong><br>¿Cuánto me falta?</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+
+		<div class="p_8">
+			<div id="con1" class="p_8_array"></div>
+		</div>
+					
+<!--FIN PANTALLA EJERCICIOS-->
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+		
+				<div id="arr1" class="p_5_coin_1"></div>
+				<div id="arr2" class="p_5_coin_2"></div>
+				<div id="arr3" class="p_5_coin_5"></div>
+				<div id="arr4" class="p_5_coin_10"></div>
+					
+				<div class="clear"></div>
+		</div>
+	</div>
+
+<!--JAVA SCRIPTS-->
+    
+    <script type="text/javascript" src="cordova.js"></script> 
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+		
+		
+		$(function() {
+			   $( "#arr1, #arr2, #arr3, #arr4").draggable({ containment: 'body', revert: "valid",
+				start: function() {
+					$(this).css( "z-index","10" );
+				},
+				stop: function() {
+					$(this).css('z-index', '1');
+				}
+			  });
+
+
+			  $( "#con1" ).droppable({  
+				accept: "#arr1, #arr2, #arr3, #arr4",
+				tolerance: "intersect",
+				drop: function( event, ui ) {
+
+					  if($(this).attr("id")=="con1" && ui.draggable.attr("id")=="arr4"){
+						 $('#arr4').hide()
+					     $('#con1').css('background', 'url(img_p/coin_10.svg) no-repeat center')
+						 $('#retro_buena').show() 
+						 $('#retro_buena').animate({opacity:'1'}, 400)
+						 $('#buena_titulo').html('Has logrado resolver corretamente el ejercicio.')
+						 $('#buena_texto').html('Avanza a la siguiente pantalla.')
+					  }
+						 else{
+						  $('#retro_mala').show() 
+						  $('#retro_mala').animate({opacity:'1'}, 400)
+					}
+		/* Retroalimentaciones malas */				
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Arrastra la moneda al espacio que le corresponde.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+			/*	Retroalimentaciones malas	*/	
+				}
+			   });
+			   $( "body" ).droppable({tolerance: "touch",drop: function( event, ui ) {}});
+			});	
+		
+		var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+					
+			
+			if(contador == 0){
+				$('#carga').load('04/p_9.html')
+				reiniciar()
+			}
+		})
+		
+		inicio()
+		pagina4=8						
+		    	
+    </script> 
+<!--FIN JAVA SCRIPTS-->

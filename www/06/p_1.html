@@ -1,0 +1,30 @@
+	
+<div class="header_white">
+		<div class="centrar textos_c"><strong class="unidad_purple textos_m">Nivel 6</strong> Habilidades 1</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >En esta sección podrás mejorar tus habilidades y destrezas con diferentes ejercicios que pondran a prueba tu capacidad de observación.</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+<div class="p_1"></div>										
+
+					<div class="p_1_avanzar">							
+						<div id="avanzar" class="redondear">Siguiente</div >
+					</div >	
+
+<div class="background_color"></div>
+
+    <script> 
+		
+	$('#avanzar').click(function(){
+			$('#carga').load('06/p_2.html')
+		})
+		pagina6=1								
+		inicio()
+		/*	Carga el CSS de 06	*/
+		var style=document.createElement("link");
+		style.rel="stylesheet";
+    	style.type="text/css";
+		loadjscssfile("css/06.css", "css")	
+		
+		
+    </script> 

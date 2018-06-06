@@ -1,0 +1,153 @@
+<div style="position: absolute; width: 100%; height: 100%">
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 2</strong> Operaciones 3</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >Cuenta y resuelve la operación.</div>	
+<!-- FIN PARTE SUPERIOR -->
+
+	<div class="p_3"></div>											
+	
+<!-- PANTALLA EJERCICIOS-->
+<div class="ejercicio_contenedor">
+
+			<div class="filas_ejercicio_margen">
+
+			<div class="filas_ejercicio linea_azul" style="display: inline-block;">
+				
+
+				<div class="filas_num">
+					<input id="input1" type="text" maxlength="2">
+					<div id="tache1" class="retro_mal3"></div>
+					<div id="buena1" class="retro_bien3"></div>	
+				</div>
+				
+<div class="filas_espacio_s"></div>
+				
+				<div class="filas_num">
+					<div class="filas_circulo">
+						<div class="textos_g centrar ">+</div>
+					</div>
+				</div>
+				
+<div class="filas_espacio_s"></div>				
+	
+				
+				<div class="filas_num">
+					<input id="input2" class="filas_respuestas" type="text" maxlength="2">
+					<div id="tache2" class="retro_mal3"></div>
+					<div id="buena2" class="retro_bien3"></div>
+				</div>
+	
+<div class="filas_espacio_s"></div>
+				
+						<div class="filas_num">
+					<div class="filas_circulo">
+						<div class="textos_g centrar ">=</div>
+					</div>
+				</div>
+
+	<div class="filas_espacio_s"></div>
+
+				
+			<div class="filas_num">
+					<input id="input3" class="filas_respuestas" type="text" maxlength="2">
+					<div id="tache3" class="retro_mal3"></div>
+					<div id="buena3" class="retro_bien3"></div>
+				</div>
+				
+			</div>
+		</div>				
+</div>
+<!--FIN PANTALLA EJERCICIOS-->
+	
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+		
+				<div class="row">
+					<div id="comprobar" class="marco_gris">Comprobar</div>
+				</div>
+				
+		</div>
+	</div>
+</div>
+
+<!--JAVA SCRIPTS-->
+        <script> 
+			$('#comprobar').click(function(){
+				$('#tache1, #tache2, #tache3, #tache4, #tache5, #tache6').hide()
+				if(document.getElementById('input1').value=='6' && document.getElementById('input2').value=='10' && document.getElementById('input3').value=='16'){
+					
+					$('#retro_buena').show() 
+					$('#retro_buena').animate({opacity:'1'}, 400)
+					$('#buena_titulo').html('¡Correcto!.')
+					$('#buena_texto').html('Has logrado completar las series numéricas.')
+					
+				}else{
+					if(document.getElementById('input1').value!='6'){
+						$('#tache1').fadeIn()
+						
+					}else{
+						$('#buena1').fadeIn()
+					}
+					
+					if(document.getElementById('input2').value!='10'){
+						$('#tache2').fadeIn()
+					}else{
+						$('#buena2').fadeIn()
+					}
+					
+					if(document.getElementById('input3').value!='16'){
+						$('#tache3').fadeIn()
+					}else{
+						$('#buena3').fadeIn()
+					}
+					
+			
+			/*	Retroalimentaciones malas	*/
+					
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Escribe el número correcto.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+					
+			/*	Retroalimentaciones malas	*/
+					
+					$('#retro_mala').show() 
+					$('#retro_mala').animate({opacity:'1'}, 400)
+			
+	
+				}
+			})
+			
+	var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+			if(contador == 0){
+				$('#carga').load('02/p_4.html')
+				reiniciar()
+			}
+		})
+			
+		pagina2=3
+		inicio()
+			
+$('#input1').numeric();
+$('#input2').numeric();
+$('#input3').numeric();
+			
+			
+    </script> 
+

@@ -1,0 +1,111 @@
+<!-- PARTE SUPERIOR-->	
+	<div class="header_color">
+		<div class="centrar textos_c"><strong class="unidad_yellow textos_m">Nivel 3</strong> Geometría 19</div>
+	</div>	
+	<div class="titulo_negro redondear sombra textos_m" >¿Qué hora marca el reloj?</div>	
+<!-- FIN PARTE SUPERIOR -->
+<!-- PANTALLA EJERCICIOS-->
+
+		<div class="p_19">
+		<div id="con1" class="marco_morado_off2 sombra_gris redondear textos_g centrar_h">¿?</div >
+</div>
+
+
+					
+<!--FIN PANTALLA EJERCICIOS-->
+<!--PANTALLA INFERIOR-->
+	<div class="screen_bottom">
+		<div class="screen_front">
+		
+				<div id="arr1" class="respuesta drag_texto sombra_gris">
+					<div class="textos_m centrar"><strong style="color: #ff5a00">5</strong>:<strong style="color: #00cdc8">00</strong></div>
+				</div>
+			
+			
+				<div id="arr2" class="respuesta drag_texto sombra_gris">
+					<div class="textos_m centrar"><strong style="color: #ff5a00">6</strong>:<strong style="color: #00cdc8">00</strong></div>
+				</div>
+			
+				<div id="arr3" class="respuesta drag_texto sombra_gris">
+					<div class="textos_m centrar"><strong style="color: #ff5a00">7</strong>:<strong style="color: #00cdc8">00</strong></div>
+				</div>
+			
+				<div class="clear"></div>
+		</div>
+	</div>
+
+<!--JAVA SCRIPTS-->
+    
+    <script type="text/javascript" src="cordova.js"></script> 
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+		
+		
+		$(function() {
+			   $( "#arr1, #arr2, #arr3, #arr4").draggable({ containment: 'body', revert: "valid",
+				start: function() {
+					$(this).css( "z-index","10" );
+				},
+				stop: function() {
+					$(this).css('z-index', '1');
+				}
+			  });
+
+
+			  $( "#con1" ).droppable({  
+				accept: "#arr1, #arr2, #arr3, #arr4",
+				tolerance: "intersect",
+				drop: function( event, ui ) {
+
+					  if($(this).attr("id")=="con1" && ui.draggable.attr("id")=="arr2"){
+						 $('#arr2').hide()
+						 document.getElementById('con1').classList.add("marco_morado");
+						 $('#con1').html('6:00')
+					     $('#con1').css('color', '#f0e5e0')
+						 $('#retro_buena').show() 
+						 $('#retro_buena').animate({opacity:'1'}, 400)
+						 $('#buena_titulo').html('Has logrado resolver corretamente el ejercicio.')
+						 $('#buena_texto').html('Avanza a la siguiente pantalla.')
+					  }
+						 else{
+						  $('#retro_mala').show() 
+						  $('#retro_mala').animate({opacity:'1'}, 400)
+					}
+		/* Retroalimentaciones malas */				
+				if(malas==0){
+						 $('#mala_titulo').html('Revisa tu respuesta.')
+						 $('#mala_texto').html('Arrastra al espacio blanco la hora que marca el reloj.')
+				}	
+					
+					if(malas==1){
+						 $('#mala_titulo').html('¡Ten cuidado!')
+						 $('#mala_texto').html('Solo te queda una oportunidad.')
+				}
+					
+				 	if(malas==2){
+						 $('#mala_titulo').html('¡No lo lograste!')
+						 $('#mala_texto').html('Avanza a la siguiente pantalla.')
+				}					
+			/*	Retroalimentaciones malas	*/	
+				}
+			   });
+			   $( "body" ).droppable({tolerance: "touch",drop: function( event, ui ) {}});
+			});	
+		
+		var contador = 0
+		$('#cerrar_buena').click(function(){
+			$('#retro_buena').animate({opacity:'0'}, 400)
+			$('#retro_buena').fadeOut(0)
+					
+			
+			if(contador == 0){
+				$('#carga').load('03/p_20.html')
+				reiniciar()
+			}
+		})
+		
+		inicio()
+		pagina3=19						
+		    	
+    </script> 
+<!--FIN JAVA SCRIPTS-->

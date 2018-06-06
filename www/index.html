@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+	
+
+	<script src="js/numeric.js"></script>
+    <script src="js/01.js"></script>
+    <script src="js/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="js/easing.js" type="text/javascript"></script>
+    <script src="js/transit.js"></script>
+    <script src="js/jquery-ui.min.js" type="text/javascript" ></script>
+    <script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/dom-drag.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+
+
+<title>MissPaty</title>
+</head>
+
+
+<body class="background_white" onLoad="$('#carga').load('intro.html')">
+	
+
+<div class="marco_phone">
+	<div id="carga"></div>
+	<div id="retro_mala" style="display:none; opacity:0"></div>
+	<div id="retro_buena" style="display:none; opacity:0"></div>
+	<div class="intro_menu"></div>
+</div>	
+	<script>
+		$('#retro_mala').load('pop_mal.html')
+		$('#retro_buena').load('pop_bien.html')
+	</script>
+
+	
+<script type="text/javascript" src="cordova.js"></script> 
+<script type="text/javascript" src="js/index.js"></script> 
+<script type="text/javascript">
+            app.initialize();
+        </script>
+</body>
+	
+<script>
+	
+var nivel = 1			
+	
+function inicio(){
+				var $window = $(window);
+				width = $window.width();
+				height = $window.height();
+				$('.textos_exg').css('font-size', height/18+'px')
+				$('.textos_ex').css('font-size', height/22+'px')
+				$('.textos_g').css('font-size', height/34+'px')
+				$('.textos_m').css('font-size', height/42+'px')
+				$('.textos_mc').css('font-size', height/48+'px')
+				$('.textos_c').css('font-size', height/56+'px')	
+				$('.textos_cx').css('font-size', height/60+'px')	
+				$('.textos_cxg').css('font-size', height/80+'px')	
+	  		}
+         inicio()
+	
+
+
+	
+//CARGA LOS JS	
+function loadjscssfile(filename, filetype){
+    if (filetype=="js"){ //if filename is a external JavaScript file
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+    }
+    else if (filetype=="css"){ //if filename is an external CSS file
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+}
+//FIN DE CARGA LOS CSS.............
+
+	
+function reiniciar(){
+	$(".pop_contador2, .pop_contador3").hide()
+	malas = 0
+}		
+	
+	
+</script>
+</html>
